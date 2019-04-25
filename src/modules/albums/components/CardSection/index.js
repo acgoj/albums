@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 import styles from './styles';
 
-const CardSection = (props) => (
+export default class CardSection extends PureComponent {
+  render() {
+    return ( 
     <View style={styles.containerStyle}>
-      {props.children}
-    </View>
-  );
+      {this.props.children}
+    </View> 
+    );
+  }
+}
 
-export default CardSection;

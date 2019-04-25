@@ -9,9 +9,11 @@ export default class InitialPage extends Component {
 
     render() {
         return (
-            <TouchableOpacity onPress={this.onPress} style={{width:200, height:200}}>
-                <Text style={{fontSize:60}}>Ir para os albums</Text>
+            <TouchableOpacity onPress={this.onPress}>
+                <Text style={styles.textStyle}>Ir para os albums</Text>
              </TouchableOpacity>
         );
     }
 }
+
+const styles = { textStyle: { alignSelf: 'center', marginTop: 200, fontSize: 60 } };

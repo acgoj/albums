@@ -4,6 +4,7 @@ import styles from './styles';
 import { navigate } from '../../../../navigation';
 
 export default class Card extends PureComponent {
+  // eslint-disable-next-line no-undef
   onPress = () => {
     navigate('AlbumDetailScreen', { url: this.props.url });
   }  

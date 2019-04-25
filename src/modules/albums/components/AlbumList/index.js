@@ -4,11 +4,10 @@ import AlbumDetail from '../AlbumDetail';
 import styles from './styles';
 
 class AlbumList extends Component {
-  renderAlbums = () => {
-    return this.props.albums.map(album =>
+  // eslint-disable-next-line no-undef
+  renderAlbums = () => this.props.albums.map(album =>
       <AlbumDetail key={album.title} album={album} />
-    );
-  }
+    )
 
   render() {
     return (
