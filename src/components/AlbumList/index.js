@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import axios from 'axios';
-import AlbumDetail from './AlbumDetail';
+import AlbumDetail from '../AlbumDetail';
+import styles from './styles';
 
 class AlbumList extends Component {
-  state = { albums: [] };
+  constructor(props) {
+    super(props);
+    this.state = { albums: [] };
+  }
 
   componentWillMount() {
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
@@ -21,7 +25,7 @@ class AlbumList extends Component {
     console.log(this.state);
 
     return (
-      <ScrollView horizontal contentContainerStyle={{marginTop: 80}}>
+      <ScrollView horizontal contentContainerStyle={styles.containerStyle}>
         {this.renderAlbums()}
       </ScrollView>
     );
