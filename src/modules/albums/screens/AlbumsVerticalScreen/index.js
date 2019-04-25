@@ -4,24 +4,24 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Header from '../../components/Header';
 import AlbumList from '../../components/AlbumList';
-import { getAlbumsHorizontal } from '../../state/actions';
+import { getAlbumsVertical } from '../../state/actions';
 
 const mapStateToProps = state => ({
-      isLoading: state.albums.albumsHorizontal.isLoading,
-      error: state.albums.albumsHorizontal.error,
-      albums: state.albums.albumsHorizontal.albums
+      isLoading: state.albums.albumsVertical.isLoading,
+      error: state.albums.albumsVertical.error,
+      albums: state.albums.albumsVertical.albums
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
     {
-        getAlbumsHorizontal
+        getAlbumsVertical
     },
     dispatch
 );
 
-class AlbumsHorizontalScreen extends PureComponent {
+class AlbumsVerticalScreen extends PureComponent {
     async componentDidMount() {
-        await this.props.getAlbumsHorizontal();
+        await this.props.getAlbumsVertical();
     }
 
     render() {
@@ -31,8 +31,8 @@ class AlbumsHorizontalScreen extends PureComponent {
         else if (error) return <View><Text>Deu Erro</Text></View>;
         return (
             <View>
-                <Header headerText={'Albums Horizontal'} />
-                <AlbumList horizontal albums={albums} />
+                <Header headerText={'Albums Vertical'} />
+                <AlbumList albums={albums} />
             </View>
         );
     }
@@ -41,4 +41,4 @@ class AlbumsHorizontalScreen extends PureComponent {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(AlbumsHorizontalScreen);
+  )(AlbumsVerticalScreen);

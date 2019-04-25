@@ -1,8 +1,28 @@
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import AlbumsHorizontalScreen from '../screens/AlbumsHorizontalScreen';
+import AlbumsVerticalScreen from '../screens/AlbumsVerticalScreen';
+import AlbumDetailScreen from '../screens/AlbumDetailScreen';
+
 
 const TabNavigator = createBottomTabNavigator({
-    AlbumsHorizontalScreen
+    AlbumsHorizontalScreen: {
+        screen: AlbumsHorizontalScreen
+    },
+    AlbumsVerticalScreen: {
+        screen: AlbumsVerticalScreen
+    }
 });
 
-export default TabNavigator;
+const AlbumStackNavigator = createStackNavigator({
+    TabNavigator: {
+        screen: TabNavigator,
+        navigationOptions: {
+            header: null
+          }
+    },
+    AlbumDetailScreen: {
+        screen: AlbumDetailScreen
+    }
+});
+
+export default AlbumStackNavigator;

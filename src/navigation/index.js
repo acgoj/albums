@@ -1,10 +1,35 @@
-import { createStackNavigator } from 'react-navigation';
-import initialPage from '../InitialPage';
-import albumStack from '../modules/albums/navigation';
+import { NavigationActions, createSwitchNavigator } from 'react-navigation';
+import InitialPage from '../InitialPage';
+import AlbumStackNavigator from '../modules/albums/navigation';
 
-const SwitchNavigator = createStackNavigator({
-    InitialPage: initialPage,
-    AlbumStack: albumStack
+const SwitchNavigator = createSwitchNavigator({
+    InitialPage,
+    AlbumStack: AlbumStackNavigator
 });
 
-export default SwitchNavigator;
+let navigator;
+
+function setTopLevelNavigator(navigatorRef) {
+  navigator = navigatorRef;
+}
+
+function navigate(routeName, params, action) {
+    console.log(params);
+    navigator.dispatch(
+      NavigationActions.navigate({
+        routeName,
+        params,
+        action
+      })
+    );
+  }
+  
+  function dispatch(action) {
+    navigator.dispatch(action);
+  }
+  
+  function back() {
+    navigator.dispatch(NavigationActions.back());
+  }
+
+export { setTopLevelNavigator, back, dispatch, navigate, SwitchNavigator };

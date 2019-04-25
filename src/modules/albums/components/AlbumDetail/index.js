@@ -5,7 +5,8 @@ import CardSection from '../CardSection';
 import styles from './styles';
 
 const AlbumDetail = ({ album }) => {
-  const { title, artist, thumbnail_image, image } = album;
+  // eslint-disable-next-line camelcase
+  const { title, artist, thumbnail_image, url, image } = album;
   const {
     thumbnailStyle,
     headerContentStyle,
@@ -15,7 +16,7 @@ const AlbumDetail = ({ album }) => {
   } = styles;
 
   return (
-    <Card>
+    <Card url={url}>
       <CardSection>
         <View style={thumbnailContainerStyle}>
           <Image
